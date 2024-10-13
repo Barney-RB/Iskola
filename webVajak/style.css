@@ -23,7 +23,8 @@ body {
     z-index: 1;
 }
 
-/*.background {
+/*
+.background {
     background-image: url('backg_image.jpg');
     background-size: auto;
     background-position: center;
@@ -32,9 +33,9 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-}*/
+}
 
-/*.content {
+.content {
     background-image: url('cont_image.jpg');
     background-position: center;
     background-size: cover;
@@ -42,19 +43,23 @@ body {
 }*/
 
 header {
-    height: 300px;
-    text-align: center;
-    color: #ffffff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px;
-    border-bottom: 2px salmon;
-    z-index: 3;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  border-bottom: 2px salmon;
+  width: 54.4%;
+  height: 300px;
+  margin: 30px auto;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
 }
 
 header h1 {
-    font-size: 25px;
+    font-size: 27px;
     text-shadow: 2px 2px 4px #000;
     margin: 0 0 30px 0;
 }
@@ -64,6 +69,7 @@ nav {
     z-index: 3;
 }
 
+/*
 nav ul {
     list-style-type: none;
     padding: 0;
@@ -142,6 +148,50 @@ nav ul li ul.dropdown {
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
   }
+*/
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0; /* Fent margó, hogy ne tapadjon a címhez */
+  display: flex;
+  justify-content: center; /* Középre igazítja a menüpontokat */
+}
+
+nav ul li {
+  margin: 0 30px; /* Távolság a menüpontok között */
+  font-size: 20px;
+}
+
+nav ul li a {
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  text-decoration: none;
+  border: 2px solid transparent; /* Nincs körvonal kezdetben */
+  border-radius: 5px;
+  transition: box-shadow 0.4s ease, color 0.4s ease, background-color  0.4s ease;
+
+}
+
+/* Lámpaszerű hover effekt: széles, halványuló árnyék */
+nav ul li a:hover {
+  box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.5); /* Fehér széles és elhalványuló fény */
+  background-color: rgb(126, 126, 126);
+  color: #f0f0f0;
+}
+
+/* Reszponzív menü kisebb képernyőkön */
+@media (max-width: 768px) {
+  nav ul {
+      flex-direction: column; /* Kis képernyőn függőleges elrendezés */
+      align-items: center;
+  }
+
+  nav ul li {
+      margin: 10px 0; /* Függőleges távolság a menüpontok között */
+  }
+}
 
 .container {
     display: flex;
