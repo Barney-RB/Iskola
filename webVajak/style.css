@@ -2,14 +2,25 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: all 0.5 ease-in-out;
 }
 
 body {
     font-family: 'Arial', sans-serif;
     background-color: #1e1e1e;
-    background-image: url('backg_image.jpg');
+    background-image: url('cont_image.jpg');
     color: #ffffff;
-    line-height: 1.6;
+    line-height: 2;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    backdrop-filter: blur(3px);
+    z-index: 1;
 }
 
 /*.background {
@@ -31,19 +42,26 @@ body {
 }*/
 
 header {
-    background: url('backg_image.jpg') no-repeat center center/cover;
     height: 300px;
     text-align: center;
     color: #ffffff;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+    padding: 20px;
+    border-bottom: 2px salmon;
+    z-index: 3;
 }
 
 header h1 {
     font-size: 25px;
     text-shadow: 2px 2px 4px #000;
+    margin: 0 0 30px 0;
+}
+
+nav {
+    position: relative;
+    z-index: 3;
 }
 
 nav ul {
@@ -53,61 +71,102 @@ nav ul {
 }
 
 nav ul li {
-    display: inline-block;
-    position: relative;
-    background: transparent(50%);
+  display: inline-block;
+  position: relative;
+  margin-right: 20px;
 }
 
 nav ul li a {
-    color: #ffffff;
-    padding: 10px 20px;
-    text-decoration: none;
-    background-color: #333;
-    display: block;
-    font-size: 1.2rem;
+  color: #ffffff;
+  padding: 10px 20px;
+  text-decoration: none;
+  background-color: #333;
+  display: block;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+nav ul li a:hover {
+  background-color: #555;
 }
 
 nav ul li ul.dropdown {
     display: none;
     position: absolute;
     top: 100%;
-    left: 0;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: #333;
-    padding: 0;
+    padding: 10px;
     margin: 0;
     list-style: none;
-    z-index: 1000;
-}
-
-nav ul li ul.dropdown li {
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 4;
+    text-align: center;
+  }
+  
+  nav ul li ul.dropdown li {
     display: block;
-}
-
-nav ul li ul.dropdown li a {
+    margin-bottom: 10px;
+    white-space: nowrap;
+  }
+  
+  nav ul li ul.dropdown li a {
     padding: 10px 20px;
     color: #fff;
     text-decoration: none;
     display: block;
     background-color: #444;
-}
-
-nav ul li ul.dropdown li a:hover {
+    border-radius: 5px;
+    transition: background-color 0.2s ease-in-out;
+    width: auto;
+  }
+  
+  nav ul li ul.dropdown li a:hover {
     background-color: #555;
-}
-
-nav ul li:hover ul.dropdown {
+  }
+  
+  nav ul li:hover ul.dropdown {
     display: block;
+  }
+  
+  nav ul li ul.dropdown::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-bottom: 10px solid #333;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+  }
+
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    /*height: 100vh; /* Teljes nézetmagasság */
+    margin: 0 auto;
+    width: 100%;
+    z-index: 2;
+    overflow: visible;
+    /*position: relative;*/
 }
 
-section {
-    padding: 40px 20px;
-    text-align: center;
+.main-content {
+    width: 55%;
+    /*height: 80vh; /* Meghatározott magasságú központi rész */
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    /* overflow-y: scroll; /* Görgethető függőlegesen */
+    border-radius: 8px;
 }
 
-section img {
-    max-width: 100%;
-    height: auto;
-    margin-top: 20px;
+.main-content img {
+    margin: 25px 20px 10px 20px;
+    border-radius: 10px;
 }
 
 .character {
@@ -123,5 +182,12 @@ footer {
     background-color: #000;
     color: #fff;
     text-align: center;
-    padding: 20px 0;
+    padding: 10px 0;
+    border-top: 2px burlywood;
+    margin-top: 15px;
+    z-index: 2;
+}
+
+h1, h2{
+    margin: 10px 0 10px 0;
 }
